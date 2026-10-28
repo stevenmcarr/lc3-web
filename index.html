@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LC-3 Exam</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="toolbar">
+  <span id="exam-title">LC-3 Exam</span>
+  <span class="spacer"></span>
+  <span id="save-state" class="muted">Saved</span>
+  <button id="btn-assemble" title="Assemble (Ctrl+B)">Assemble</button>
+  <button id="btn-run" class="primary" title="Assemble and run, or continue (Ctrl+Enter)">▶ Run</button>
+  <button id="btn-step" title="Run one instruction; TRAPs run as one step (F11)">Step</button>
+  <button id="btn-over" title="Like Step, but also runs a JSR subroutine as one step (F10)">Step over</button>
+  <button id="btn-out" title="Run until the current subroutine returns (Shift+F11)">Step out</button>
+  <button id="btn-stop" title="Pause the running program" disabled>❚❚ Pause</button>
+  <button id="btn-tests" title="Run the exam's sample tests">Run tests</button>
+  <button id="btn-copy" class="submit" title="Copy all your code to paste into the quiz">Copy all code</button>
+</header>
+<main id="workbench">
+  <nav id="sidebar">
+    <div class="side-head">
+      <span>FILES</span>
+      <button id="btn-new" class="icon" title="New file">+</button>
+    </div>
+    <ul id="file-list"></ul>
+    <div id="new-file-row" hidden>
+      <input id="new-file-name" placeholder="name.asm" spellcheck="false" autocomplete="off">
+    </div>
+    <div class="side-foot">
+      <button id="btn-reset" class="link">Reset to starter code</button>
+    </div>
+  </nav>
+  <section id="editor-area">
+    <div id="tabs"></div>
+    <div id="editor"></div>
+    <div id="resizer" title="Drag to resize"></div>
+    <section id="panel">
+      <div class="panel-head">
+        <span>CONSOLE</span>
+        <span id="run-state" class="muted"></span>
+        <span class="spacer"></span>
+        <button id="btn-clear" class="small">Clear</button>
+      </div>
+      <div id="console" tabindex="0" title="Click here and type to send keys to the program"></div>
+    </section>
+  </section>
+  <aside id="machine">
+    <div class="side-head"><span>REGISTERS</span></div>
+    <table id="regs"></table>
+    <div class="side-head">
+      <span>MEMORY</span>
+      <input id="mem-goto" placeholder="x3000 or label" spellcheck="false" autocomplete="off" title="Show memory at an address or label">
+    </div>
+    <div id="memory"></div>
+  </aside>
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box">
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <div id="modal-actions"></div>
+  </div>
+</div>
+
+<script src="vendor/monaco/vs/loader.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
